@@ -1,18 +1,23 @@
 # File uploading testing
 
 This was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 And is using React 18
 
-## Available Scripts
+## To test the UI/FE
 
-In the project directory, you can run:
+1. Start the Flask basic file uploader
+- in a terminal window, go to `be/app` director
+- run `python basicUploader.py`
+_or python3, python3.10 - whatever you have aliased for python_
 
-### `npm start`
+2. Start the React App
+- in another terminal window, from the top level folder (file-upload-testing if you cloned without changes)
+- run `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. In a browser go to `http://localhost:3000/?`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_You can now select a file from your computer, click upload, and see the file be saved into your local /be/app/files folder_
 
+## Notes
+
+Note: UI does not currently show confirmation of success or failure, please use console/network in dev tools to check
