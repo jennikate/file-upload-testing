@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
+const POST_TO_URL = 'http://localhost:5000/uploader';
+
 function App() {
   const [file, setFile] = useState()
 
@@ -11,8 +13,7 @@ function App() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
-    const url = 'http://localhost:3000/uploadFile'; // end point to post to, will be whatever we setup in BE
+    event.preventDefault();
     const formData = new FormData(); // create a new form object
 
     formData.append('file', file); // add the file and it's name to the form object
@@ -24,8 +25,8 @@ function App() {
       },
     };
 
-    axios.post(url, formData, config).then((response) => { // post to endpoint, with file in formData, and content-type as our config
-      console.log(response.data);
+    axios.post(POST_TO_URL, formData, config).then((response) => { // post to endpoint, with file in formData, and content-type as our config
+      console.log(response);
     });
   }
 
