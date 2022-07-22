@@ -6,7 +6,7 @@ And is using React 18
 ## To test the UI/FE
 
 1. Start the Flask basic file uploader
-- in a terminal window, go to `be/app` director
+- in a terminal window, go to `be/app` directory
 - run `python basicUploader.py`
 _or python3, python3.10 - whatever you have aliased for python_
 
