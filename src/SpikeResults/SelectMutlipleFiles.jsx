@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css'
 
 const MAX_COUNT = 5;
+const MAX_FILE_SIZE = 15000;
 
 function App() {
   const [fileLimit, setFileLimit] = useState(false); // set a limit on how many files can be uploaded at one time
@@ -12,7 +13,10 @@ function App() {
       alert('Too many files selected')
     } else {
       const selected = files.flatMap((file) => { // flat map lets you return the empty array when the if condition is not met, and flattens it (rather than using reduce, or map+filter)
-        if (selectedFiles.findIndex((f) => f.name === file.name) === -1) { // check if file already in list to prevent duplicate files being added
+        if (file.size > MAX_FILE_SIZE) { // can test the file size and prevent a file that's too big being selected
+          alert(`${file.name} too big`);
+          return [];
+        } else if (selectedFiles.findIndex((f) => f.name === file.name) === -1) { // check if file already in list to prevent duplicate files being added
           return file;
         } else {
           return [];
